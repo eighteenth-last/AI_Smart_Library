@@ -624,9 +624,9 @@ server {
 
 ## 👥 开发团队
 
-- **项目负责人**: [Your Name]
-- **后端开发**: [Backend Team]
-- **前端开发**: [Frontend Team]
+- **项目负责人**: 程序员Eighteen
+- **后端开发**: 程序员Eighteen
+- **前端开发**: 程序员Eighteen
 
 ---
 
@@ -634,7 +634,7 @@ server {
 
 - **项目地址**: https://github.com/yourusername/AI_Smart_Library
 - **问题反馈**: [Issues](https://github.com/yourusername/AI_Smart_Library/issues)
-- **邮箱**: support@example.com
+- **邮箱**: 3273495516@qq.com
 
 ---
 
