@@ -27,14 +27,14 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.31.142.67:3306/ai_smart_library?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/ai_smart_library?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
-    password: qwer4321
+    password: password
 
   # Spring AI 配置
   ai:
     openai:
-      api-key: ${DEEPSEEK_API_KEY:sk-34e693a167ba4fcc9c3070125d730a4d}
+      api-key: ${DEEPSEEK_API_KEY:your_deepseek_api_key}
       base-url: https://api.deepseek.com
       chat:
         options:
@@ -48,7 +48,7 @@ spring:
       port: 6379
       timeout: 5000ms
       database: 0
-      host: 172.31.142.67
+      host: localhost
 
 # MyBatis-Plus 配置
 mybatis-plus:
@@ -108,7 +108,7 @@ embedding:
     # API 基础 URL
     base-url: https://api.ppinfra.com/openai/v1
     # API Key
-    api-key: sk_FjDpRv6r8U0hmfuDNBGHhthr2DP_p4bzvWK85bcSaXg
+    api-key: your_deepseek_api_key
     # 模型名称
     model: qwen/qwen3-embedding-8b
     # 向量编码格式
