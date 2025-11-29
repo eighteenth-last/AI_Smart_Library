@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.module.book.mapper.BookMapper">
+
+    <!-- 图书列表查询结果映射 -->
+    <resultMap id="BookVOMap" type="com.library.module.book.vo.BookVO">
+        <id column="book_id" property="bookId"/>
+        <result column="isbn" property="isbn"/>
+        <result column="title" property="title"/>
+        <result column="author_id" property="authorId"/>
+        <result column="author_name" property="authorName"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="publisher" property="publisher"/>
+        <result column="publish_year" property="publishYear"/>
+        <result column="cover_url" property="coverUrl"/>
+        <result column="description" property="description"/>
+        <result column="total_stock" property="totalStock"/>
+        <result column="available_stock" property="availableStock"/>
+        <result column="average_rating" property="averageRating"/>
+        <result column="review_count" property="reviewCount"/>
+        <result column="borrow_count" property="borrowCount"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 图书详情查询结果映射 -->
+    <resultMap id="BookDetailVOMap" type="com.library.module.book.vo.BookDetailVO">
+        <id column="book_id" property="bookId"/>
+        <result column="isbn" property="isbn"/>
+        <result column="title" property="title"/>
+        <result column="publisher" property="publisher"/>
+        <result column="publish_year" property="publishYear"/>
+        <result column="cover_url" property="coverUrl"/>
+        <result column="description" property="description"/>
+        <result column="total_stock" property="totalStock"/>
+        <result column="available_stock" property="availableStock"/>
+        <result column="average_rating" property="averageRating"/>
+        <result column="review_count" property="reviewCount"/>
+        <result column="borrow_count" property="borrowCount"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+
+        <!-- 作者信息 -->
+        <association property="author" javaType="com.library.module.book.vo.BookDetailVO$AuthorInfo">
+            <id column="author_id" property="authorId"/>
+            <result column="author_name" property="name"/>
+            <result column="author_country" property="country"/>
+            <result column="author_intro" property="intro"/>
+        </association>
+
+        <!-- 分类信息 -->
+        <association property="category" javaType="com.library.module.book.vo.BookDetailVO$CategoryInfo">
+            <id column="category_id" property="categoryId"/>
+            <result column="category_name" property="name"/>
+        </association>
+    </resultMap>
+
+    <!-- 分页查询图书列表 -->
+    <select id="selectBookListWithInfo" resultMap="BookVOMap">
+        SELECT
+            b.book_id,
+            b.isbn,
+            b.title,
+            b.author_id,
+            a.name AS author_name,
+            b.category_id,
+            c.name AS category_name,
+            b.publisher,
+            b.publish_year,
+            b.cover_url,
+            b.description,
+            b.total_stock,
+            b.available_stock,
+            b.average_rating,
+            b.review_count,
+            b.borrow_count,
+            b.status,
+            b.created_at,
+            b.updated_at
+        FROM book b
+        LEFT JOIN author a ON b.author_id = a.author_id
+        LEFT JOIN category c ON b.category_id = c.category_id
+        WHERE b.status = 1
+        <if test="keyword != null and keyword != ''">
+            AND (b.title LIKE CONCAT('%', #{keyword}, '%') OR b.isbn LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="authorId != null">
+            AND b.author_id = #{authorId}
+        </if>
+        <if test="categoryId != null">
+            AND b.category_id = #{categoryId}
+        </if>
+        ORDER BY b.created_at DESC
+    </select>
+
+    <!-- 查询图书详情 -->
+    <select id="selectBookDetailById" resultMap="BookDetailVOMap">
+        SELECT
+            b.book_id,
+            b.isbn,
+            b.title,
+            b.author_id,
+            a.name AS author_name,
+            a.country AS author_country,
+            a.intro AS author_intro,
+            b.category_id,
+            c.name AS category_name,
+            b.publisher,
+            b.publish_year,
+            b.cover_url,
+            b.description,
+            b.total_stock,
+            b.available_stock,
+            b.average_rating,
+            b.review_count,
+            b.borrow_count,
+            b.status,
+            b.created_at,
+            b.updated_at
+        FROM book b
+        LEFT JOIN author a ON b.author_id = a.author_id
+        LEFT JOIN category c ON b.category_id = c.category_id
+        WHERE b.book_id = #{bookId} AND b.status = 1
+    </select>
+
+    <!-- 查询图书的标签列表 -->
+    <select id="selectBookTags" resultType="string">
+        SELECT t.name
+        FROM tag t
+        INNER JOIN book_tag bt ON t.tag_id = bt.tag_id
+        WHERE bt.book_id = #{bookId}
+        ORDER BY t.name
+    </select>
+
+    <!-- 查询图书的标签ID列表 -->
+    <select id="selectBookTagIds" resultType="long">
+        SELECT bt.tag_id
+        FROM book_tag bt
+        WHERE bt.book_id = #{bookId}
+        ORDER BY bt.tag_id
+    </select>
+
+    <!-- 根据标签查询相似图书 -->
+    <select id="selectSimilarBooksByTags" resultMap="BookVOMap">
+        SELECT DISTINCT
+            b.book_id,
+            b.isbn,
+            b.title,
+            b.author_id,
+            a.name AS author_name,
+            b.category_id,
+            c.name AS category_name,
+            b.publisher,
+            b.publish_year,
+            b.cover_url,
+            b.description,
+            b.total_stock,
+            b.available_stock,
+            b.average_rating,
+            b.review_count,
+            b.borrow_count,
+            b.status,
+            b.created_at,
+            b.updated_at
+        FROM book b
+        LEFT JOIN author a ON b.author_id = a.author_id
+        LEFT JOIN category c ON b.category_id = c.category_id
+        INNER JOIN book_tag bt ON b.book_id = bt.book_id
+        WHERE b.book_id != #{bookId}
+        AND b.status = 1
+        AND bt.tag_id IN
+        <foreach collection="tagIds" item="tagId" open="(" close=")" separator=",">
+            #{tagId}
+        </foreach>
+        ORDER BY b.borrow_count DESC, b.created_at DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 查询所有上架图书 -->
+    <select id="selectAllBooks" resultType="com.library.module.book.entity.Book">
+        SELECT
+            book_id,
+            isbn,
+            title,
+            author_id,
+            category_id,
+            publisher,
+            publish_year,
+            cover_url,
+            description,
+            total_stock,
+            available_stock,
+            average_rating,
+            review_count,
+            borrow_count,
+            status,
+            created_at,
+            updated_at
+        FROM book
+        WHERE status = 1
+        ORDER BY created_at DESC
+    </select>
+
+    <!-- 更新图书库存 -->
+    <update id="updateBookStock">
+        UPDATE book
+        SET available_stock = available_stock + #{stockChange},
+            updated_at = NOW()
+        WHERE book_id = #{bookId}
+    </update>
+
+    <!-- 增加借阅次数 -->
+    <update id="incrementBorrowCount">
+        UPDATE book
+        SET borrow_count = borrow_count + 1,
+            updated_at = NOW()
+        WHERE book_id = #{bookId}
+    </update>
+
+    <!-- 获取热门借阅图书 -->
+    <select id="selectHotBooks" resultMap="BookVOMap">
+        SELECT
+            b.book_id,
+            b.isbn,
+            b.title,
+            b.author_id,
+            a.name AS author_name,
+            b.category_id,
+            c.name AS category_name,
+            b.publisher,
+            b.publish_year,
+            b.cover_url,
+            b.description,
+            b.total_stock,
+            b.available_stock,
+            b.average_rating,
+            b.review_count,
+            b.borrow_count,
+            b.status,
+            b.created_at,
+            b.updated_at
+        FROM book b
+        LEFT JOIN author a ON b.author_id = a.author_id
+        LEFT JOIN category c ON b.category_id = c.category_id
+        WHERE b.status = 1
+        ORDER BY b.borrow_count DESC, b.created_at DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 批量插入图书标签关联 -->
+    <insert id="insertBookTags">
+        INSERT INTO book_tag (book_id, tag_id, created_at)
+        VALUES
+        <foreach collection="tagIds" item="tagId" separator=",">
+            (#{bookId}, #{tagId}, NOW())
+        </foreach>
+    </insert>
+
+    <!-- 删除图书的所有标签关联 -->
+    <delete id="deleteBookTags">
+        DELETE FROM book_tag WHERE book_id = #{bookId}
+    </delete>
+
+</mapper>

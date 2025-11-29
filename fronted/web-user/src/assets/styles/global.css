@@ -1,0 +1,62 @@
+/* src/assets/styles/global.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+}
+
+/* 卡片样式优化 */
+.n-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮样式优化 */
+.n-button {
+  border-radius: 6px;
+}
+
+/* 输入框样式优化 */
+.n-input,
+.n-select,
+.n-input-number {
+  border-radius: 6px;
+}
+
+/* 表格样式优化 */
+.n-data-table .n-data-table-th,
+.n-data-table .n-data-table-td {
+  padding: 12px 8px;
+}
+
+/* 布局样式优化 */
+.n-layout-scroll-container {
+  overflow-x: hidden;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

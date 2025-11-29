@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.module.category.mapper.CategoryMapper">
+
+    <!-- 查询分类树形结构 -->
+    <select id="selectCategoryTree" resultType="com.library.module.category.entity.Category">
+        SELECT 
+            c.category_id,
+            c.name,
+            c.parent_id,
+            c.level,
+            c.sort_order
+        FROM category c
+        WHERE c.deleted = 0
+        ORDER BY c.parent_id, c.sort_order
+    </select>
+
+    <!-- 根据父分类ID查询子分类 -->
+    <select id="selectChildrenByParentId" resultType="com.library.module.category.entity.Category">
+        SELECT 
+            c.category_id,
+            c.name,
+            c.parent_id,
+            c.level,
+            c.sort_order
+        FROM category c
+        WHERE c.parent_id = #{parentId}
+          AND c.deleted = 0
+        ORDER BY c.sort_order
+    </select>
+
+    <!-- 检查分类下是否有图书 -->
+    <select id="countBooksByCategoryId" resultType="int">
+        SELECT COUNT(*)
+        FROM book b
+        WHERE b.category_id = #{categoryId}
+          AND b.deleted = 0
+    </select>
+
+    <!-- 检查是否有子分类 -->
+    <select id="countChildrenByCategoryId" resultType="int">
+        SELECT COUNT(*)
+        FROM category c
+        WHERE c.parent_id = #{categoryId}
+          AND c.deleted = 0
+    </select>
+
+</mapper>

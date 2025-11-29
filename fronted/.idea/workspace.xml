@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6d3641f-695c-41a2-ae8d-20c1cb5da6c3" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-admin/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-user/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Cloud_Snow_Pavilion/Static/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Cloud_Snow_Pavilion/Static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Cloud_Snow_Pavilion/web_front/admin/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ICH_Torch/.idea/ICH_Torch.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../QimaoScraper/.idea/QimaoScraper.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spider_Code/Chongqing_Open_Data_Platform/.idea/Chongqing_Open_Data_Platform.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TikTok_Data_Analysis/.idea/TikTok_Data_Analysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/City Fireworks.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/MarsCodeWorkspaceAppSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend_Development.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SCRIPT_IMPROVEMENT_PLAN.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/convert_csv_to_json.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Dashu_Village_Waste_Stats.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Kaizhou_Old_Housing_Reserve.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Market_Directory.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Shapingba_ICH_List.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Wulong_Charging_Progress.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Wushan_County_Agro-Processors_List.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/data/Yuzhong_ICH_List.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/pro.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/第2天开发总结.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/第3天开发总结.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/第4天开发总结.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/项目进度文档.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/.vite/deps/_metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/.vite/deps/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/FLASK_API_DOCUMENTATION.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/FRONTEND_API_GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/CQ.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/alerts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/brands.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/districts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/hotpot_restaurants.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/night_economy_realtime.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/data/teahouses.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/api/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/assets/vue.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/DetailModal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/HotpotDetailView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/HotpotLayer.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/MapView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/RankingDetailView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/TeahouseDetailView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/BrandTree.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/ChongqingMap.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/CityOperationTrend.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/DensityMatrix.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/DistrictMerchantTop10.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/DistrictRadar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/HotpotRanking.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/HourlyTrend.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/MetroPassengers.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/ParallelAnalysis.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/PriceWaterfall.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/ShopTypePie.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/ShopTypeRatingBox.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/TeahouseDistribution.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/TeahouseTimeline.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/TeahouseWordCloud.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/TemperatureIndex.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/TimeSlotDistribution.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/charts/VitalityRanking.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/modals/Modal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/modals/TemperatureIndexModal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/components/modals/VitalityRankingModal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/services/DataService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/src/utils/dataHelpers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../city-fireworks/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../convert_csv_to_json.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../get_data_to_mysql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/alerts.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/brands.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/chongqing_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/districts.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/hotpot_restaurants.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/night_economy_realtime.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../output/teahouses.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../进度.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Options API Component" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="35ujERvDB11hNcJjltKJ9OKnlVD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript 调试.localhost:5174.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "R:/Code_Repository/AI_Smart_Library/fronted/web-user/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "R:\\Code_Repository\\AI_Smart_Library\\fronted\\web-user\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Options API Component"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-user\public" />
+      <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-admin\public" />
+      <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-author\src\store" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript 调试.localhost:5174" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="c6d3641f-695c-41a2-ae8d-20c1cb5da6c3" name="更改" comment="" />
+      <created>1763966738957</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763966738957</updated>
+      <workItem from="1763966740429" duration="5788000" />
+      <workItem from="1763975761469" duration="58000" />
+      <workItem from="1763975822757" duration="6548000" />
+      <workItem from="1764051266958" duration="26202000" />
+      <workItem from="1764116459704" duration="5636000" />
+      <workItem from="1764129249030" duration="12862000" />
+      <workItem from="1764337568791" duration="5426000" />
+      <workItem from="1764394427639" duration="8710000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,184 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# 文件上传配置
+file:
+  upload:
+    # 文件上传根目录
+    base-path: R:/Code_Repository/AI_Smart_Library/upload_img
+    # 头像上传目录
+    profile-picture-path: ${file.upload.base-path}/Profile_picture
+    # 图书封面上传目录
+    book-cover-path: ${file.upload.base-path}/Books_img
+    # 访问URL前缀
+    url-prefix: /uploads
+
+spring:
+  application:
+    name: ai-smart-library
+
+  # 文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.31.142.67:3306/ai_smart_library?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: qwer4321
+
+  # Spring AI 配置
+  ai:
+    openai:
+      api-key: ${DEEPSEEK_API_KEY:sk-34e693a167ba4fcc9c3070125d730a4d}
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+          temperature: 0.7
+
+  # Redis 配置
+  data:
+    redis:
+      password:
+      port: 6379
+      timeout: 5000ms
+      database: 0
+      host: 172.31.142.67
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.library.module.**.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 注意：knowledge_base 表没有 deleted 字段，不要配置逻辑删除
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# Sa-Token 配置
+sa-token:
+  token-name: Authorization
+  timeout: 2592000  # 30天过期
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  is-log: false
+  jwt-secret-key: library-jwt-secret-key-2024
+  token-prefix: Bearer  # 支持 Bearer 前缀
+
+# Knife4j API文档配置
+knife4j:
+  enable: true
+  openapi:
+    title: AI智慧图书馆系统API
+    description: 基于Spring Boot + MyBatis-Plus + Sa-Token的智慧图书馆系统
+    version: 1.0.0
+    concat-contact: true
+    contact:
+      name: 万殿神阁
+      email: 3273495516@qq.com
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - com.library.module
+
+# 日志配置
+logging:
+  level:
+    com.library: debug
+    org.springframework.ai: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Embedding API 配置
+embedding:
+  api:
+    # API 基础 URL
+    base-url: https://api.ppinfra.com/openai/v1
+    # API Key
+    api-key: sk_FjDpRv6r8U0hmfuDNBGHhthr2DP_p4bzvWK85bcSaXg
+    # 模型名称
+    model: qwen/qwen3-embedding-8b
+    # 向量编码格式
+    encoding-format: float
+    # 请求超时时间（毫秒）
+    timeout: 30000
+
+# RAG (检索增强生成) 配置
+rag:
+  # 是否启用 RAG
+  enabled: true
+  # 向量检索配置
+  vector:
+    # TopK 检索数量
+    top-k: 3
+    # 最小相似度阈值 (0.0-1.0)
+    min-similarity: 0.7
+  # 全文检索配置
+  fulltext:
+    # 是否启用全文检索
+    enabled: true
+    # 全文检索最大结果数
+    max-results: 5
+  # 混合检索权重
+  hybrid:
+    # 向量检索权重 (0.0-1.0)
+    vector-weight: 0.7
+    # 全文检索权重 (0.0-1.0)
+    fulltext-weight: 0.3
+
+# 上下文管理配置
+context:
+  # 上下文窗口大小（最近 N 轮对话）
+  window-size: 10
+  # Token 数量限制
+  token:
+    # 最大 Token 数（包括上下文 + 当前问题 + 系统 prompt）
+    max-total: 8000
+    # 上下文最大 Token 数
+    max-context: 6000
+    # 预留 Token（用于系统 prompt 和回答）
+    reserved: 2000
+  # 上下文压缩策略
+  compression:
+    # 是否启用压缩
+    enabled: true
+    # 压缩策略: none(不压缩), truncate(截断), summarize(摘要)
+    strategy: truncate
+    # 保留首部对话轮数
+    keep-first: 2
+    # 保留尾部对话轮数
+    keep-last: 5
+
+# 知识库自动更新配置
+auto-knowledge:
+  # 是否启用自动更新
+  enabled: true
+  # 定时同步配置（Cron 表达式）
+  schedule:
+    # 每天凌晨3点执行
+    cron: "0 0 3 * * ?"
+  # 向量缓存配置
+  vector-cache:
+    # 是否启用向量缓存
+    enabled: true
+    # 缓存过期时间（小时）
+    ttl: 24
+  # 图书信息同步配置
+  book-sync:
+    # 是否同步图书信息
+    enabled: true
+    # 批量处理数量
+    batch-size: 100

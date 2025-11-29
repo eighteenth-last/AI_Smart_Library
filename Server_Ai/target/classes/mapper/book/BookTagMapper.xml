@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.module.book.mapper.BookTagMapper">
+
+    <!-- 图书标签关联结果映射 -->
+    <resultMap id="BookTagMap" type="com.library.module.book.entity.BookTag">
+        <result column="book_id" property="bookId"/>
+        <result column="tag_id" property="tagId"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <!-- 根据图书ID查询所有标签关联 -->
+    <select id="selectByBookId" resultMap="BookTagMap">
+        SELECT
+            book_id,
+            tag_id,
+            created_at
+        FROM book_tag
+        WHERE book_id = #{bookId}
+        ORDER BY created_at DESC
+    </select>
+
+</mapper>
