@@ -4,8 +4,10 @@
       <!-- 左侧装饰区域 -->
       <div class="left-section">
         <div class="brand">
-          <div class="brand-icon">📚</div>
-          <h1 class="brand-title">智能图书馆</h1>
+          <div class="brand-icon">
+            <img src="/favicon.ico" alt="Logo" class="logo-image" />
+          </div>
+          <h1 class="brand-title">神阁慧境阁</h1>
           <p class="brand-slogan">知识的海洋，创作的摇篮</p>
         </div>
         <div class="decoration">
@@ -203,6 +205,13 @@ const handleLogin = async () => {
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
   line-height: 1.6;
+}
+
+.logo-image {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
 }
 
 .decoration {

@@ -48,6 +48,6 @@ export const borrowAPI = {
 
   // 审批借阅申请
   approveBorrow: (data: BorrowApproveDTO) => {
-    return request.post<boolean>('/borrow/approve', data)
+    return request.post<void>('admin/borrows/approve', data)
   }
 }

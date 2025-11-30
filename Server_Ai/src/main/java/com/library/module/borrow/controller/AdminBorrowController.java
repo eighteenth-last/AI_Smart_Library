@@ -70,4 +70,29 @@ public class AdminBorrowController {
         // TODO: 实现借阅统计逻辑
         return Result.success("统计功能待实现");
     }
+
+    /**
+     * 审批借阅申请
+     */
+    @PostMapping("/approve")
+    @Operation(summary = "审批借阅申请", description = "管理员审批借阅申请，同意或拒绝")
+    public Result<Void> approveBorrow(@RequestBody com.library.module.borrow.dto.BorrowApproveDTO approveDTO) {
+        log.info("管理员审批借阅申请: recordId={}, approved={}", approveDTO.getRecordId(), approveDTO.getApproved());
+        
+        // 获取当前管理员ID
+        Long approverId = cn.dev33.satoken.stp.StpUtil.getLoginIdAsLong();
+        
+        boolean success = borrowService.approveBorrow(
+            approveDTO.getRecordId(),
+            approveDTO.getApproved(),
+            approveDTO.getRejectReason(),
+            approverId
+        );
+        
+        if (success) {
+            return Result.success();
+        } else {
+            return Result.error("审批失败");
+        }
+    }
 }

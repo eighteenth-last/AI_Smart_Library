@@ -38,7 +38,7 @@
     <n-modal
       v-model:show="showReviewModal"
       preset="card"
-      title="审核作者申请"
+      :title="getModalTitle()"
       style="width: 700px;"
       :bordered="false"
       :segmented="{
@@ -51,7 +51,7 @@
           <n-icon size="24" color="#667eea">
             <EyeOutlined />
           </n-icon>
-          <span style="font-size: 18px; font-weight: 600;">审核作者申请</span>
+          <span style="font-size: 18px; font-weight: 600;">{{ getModalTitle() }}</span>
         </div>
       </template>
 
@@ -121,35 +121,57 @@
 
       <template #footer>
         <div style="display: flex; justify-content: flex-end; gap: 12px;">
-          <n-button @click="showReviewModal = false" size="large">
-            <template #icon>
-              <n-icon><CloseOutlined /></n-icon>
-            </template>
-            取消
-          </n-button>
-          <n-button 
-            type="error" 
-            @click="handleReject" 
-            :loading="submitting"
-            size="large"
-            ghost
-          >
-            <template #icon>
-              <n-icon><CloseOutlined /></n-icon>
-            </template>
-            拒绝申请
-          </n-button>
-          <n-button 
-            type="success" 
-            @click="handleApprove" 
-            :loading="submitting"
-            size="large"
-          >
-            <template #icon>
-              <n-icon><CheckOutlined /></n-icon>
-            </template>
-            通过审核
-          </n-button>
+
+          <!-- 只有待审核状态才显示审核按钮 -->
+          <template v-if="currentAuthor && currentAuthor.authStatus === 0">
+            <n-button 
+              type="error" 
+              @click="handleReject" 
+              :loading="submitting"
+              size="large"
+              ghost
+            >
+              <template #icon>
+                <n-icon><CloseOutlined /></n-icon>
+              </template>
+              拒绝申请
+            </n-button>
+            <n-button 
+              type="success" 
+              @click="handleApprove" 
+              :loading="submitting"
+              size="large"
+            >
+              <template #icon>
+                <n-icon><CheckOutlined /></n-icon>
+              </template>
+              通过审核
+            </n-button>
+          </template>
+          
+          <!-- 已审核状态显示审核结果 -->
+          <template v-else-if="currentAuthor">
+            <n-alert 
+              v-if="currentAuthor.authStatus === 1" 
+              type="success" 
+              style="flex: 1;"
+            >
+              <template #icon>
+                <n-icon><CheckOutlined /></n-icon>
+              </template>
+              该作者已通过审核
+            </n-alert>
+            <n-alert 
+              v-else-if="currentAuthor.authStatus === 2" 
+              type="error" 
+              style="flex: 1;"
+            >
+              <template #icon>
+                <n-icon><CloseOutlined /></n-icon>
+              </template>
+              该作者申请已被拒绝
+            </n-alert>
+          </template>
         </div>
       </template>
     </n-modal>
@@ -158,7 +180,7 @@
 
 <script setup lang="ts">
 import { ref, h, onMounted } from 'vue'
-import { NButton, NTag, NIcon, NSpace, useMessage, type DataTableColumns } from 'naive-ui'
+import { NButton, NTag, NIcon, NSpace, NAlert, useMessage, type DataTableColumns } from 'naive-ui'
 import { 
   CheckOutlined, 
   CloseOutlined, 
@@ -298,6 +320,19 @@ const formatDate = (dateString: string) => {
   if (!dateString) return '-'
   const date = new Date(dateString)
   return date.toLocaleString('zh-CN')
+}
+
+// 获取弹窗标题
+const getModalTitle = () => {
+  if (!currentAuthor.value) return '作者详情'
+  
+  const statusMap: Record<number, string> = {
+    0: '审核作者申请',
+    1: '作者详情（已通过）',
+    2: '作者详情（已拒绝）'
+  }
+  
+  return statusMap[currentAuthor.value.authStatus] || '作者详情'
 }
 
 // 加载作者列表

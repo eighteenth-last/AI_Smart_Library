@@ -627,8 +627,8 @@ const handleView = async (row: any) => {
     ]);
     
     // 处理借阅数据
-    if (borrowRes.status === 'fulfilled' && borrowRes.value.data.code === 200) {
-      const borrowData = borrowRes.value.data.data;
+    if (borrowRes.status === 'fulfilled') {
+      const borrowData = borrowRes.value;
       const records = borrowData.records || [];
       // 计算当前借出数量（status字段：borrowed/returned/overdue）
       const currentBorrowed = records.filter((r: any) => r.status === 'borrowed' || r.status === 'overdue').length;
@@ -642,8 +642,8 @@ const handleView = async (row: any) => {
     }
     
     // 处理评价数据
-    if (reviewRes.status === 'fulfilled' && reviewRes.value.data.code === 200) {
-      const reviewData = reviewRes.value.data.data;
+    if (reviewRes.status === 'fulfilled') {
+      const reviewData = reviewRes.value;
       const reviews = reviewData.records || [];
       // 计算统计数据
       const fiveStarCount = reviews.filter((r: any) => r.rating === 5).length;
@@ -656,8 +656,8 @@ const handleView = async (row: any) => {
     }
     
     // 处理收藏数据
-    if (favoriteRes.status === 'fulfilled' && favoriteRes.value.data.code === 200) {
-      const favoriteData = favoriteRes.value.data.data;
+    if (favoriteRes.status === 'fulfilled') {
+      const favoriteData = favoriteRes.value;
       // PageResult结构：{ records, total, page, size }
       const favorites = favoriteData.records || [];
       
@@ -692,24 +692,21 @@ const handleEdit = async (row: any) => {
   isEdit.value = true;
   
   try {
-    const response = await request.get(`/admin/books/${row.bookId}`);
-    if (response.data.code === 200) {
-      const book = response.data.data;
-      Object.assign(formData, {
-        bookId: book.bookId,
-        isbn: book.isbn,
-        title: book.title,
-        categoryId: book.categoryId,
-        publisher: book.publisher,
-        publishYear: book.publishYear,
-        coverUrl: book.coverUrl,
-        description: book.description,
-        totalStock: book.totalStock,
-        tagIds: book.tagIds || []
-      });
-      uploadedCoverUrl.value = '';
-      showModal.value = true;
-    }
+    const book = await request.get(`/admin/books/${row.bookId}`);
+    Object.assign(formData, {
+      bookId: book.bookId,
+      isbn: book.isbn,
+      title: book.title,
+      categoryId: book.categoryId,
+      publisher: book.publisher,
+      publishYear: book.publishYear,
+      coverUrl: book.coverUrl,
+      description: book.description,
+      totalStock: book.totalStock,
+      tagIds: book.tagIds || []
+    });
+    uploadedCoverUrl.value = '';
+    showModal.value = true;
   } catch (error: any) {
     message.error('加载作品信息失败：' + (error.message || '未知错误'));
   }
@@ -718,20 +715,18 @@ const handleEdit = async (row: any) => {
 // 加载分类列表
 const loadCategories = async () => {
   try {
-    const response = await request.get('/categories/list');
-    if (response.data.code === 200) {
-      const flattenCategories = (categories: any[]): any[] => {
-        let result: any[] = [];
-        categories.forEach((cat: any) => {
-          result.push({ label: cat.name, value: cat.categoryId });
-          if (cat.children && cat.children.length > 0) {
-            result = result.concat(flattenCategories(cat.children));
-          }
-        });
-        return result;
-      };
-      categoryOptions.value = flattenCategories(response.data.data);
-    }
+    const categories = await request.get('/categories/list');
+    const flattenCategories = (categories: any[]): any[] => {
+      let result: any[] = [];
+      categories.forEach((cat: any) => {
+        result.push({ label: cat.name, value: cat.categoryId });
+        if (cat.children && cat.children.length > 0) {
+          result = result.concat(flattenCategories(cat.children));
+        }
+      });
+      return result;
+    };
+    categoryOptions.value = flattenCategories(categories);
   } catch (error) {
     console.error('加载分类失败:', error);
   }
@@ -740,13 +735,11 @@ const loadCategories = async () => {
 // 加载标签列表
 const loadTags = async () => {
   try {
-    const response = await request.get('/tags/list');
-    if (response.data.code === 200) {
-      tagOptions.value = response.data.data.map((tag: any) => ({
-        label: tag.name,
-        value: tag.tagId
-      }));
-    }
+    const tags = await request.get('/tags/list');
+    tagOptions.value = tags.map((tag: any) => ({
+      label: tag.name,
+      value: tag.tagId
+    }));
   } catch (error) {
     console.error('加载标签失败:', error);
   }
@@ -773,17 +766,15 @@ const handleCoverUpload = async (options: { file: UploadFileInfo }) => {
     const uploadFormData = new FormData();
     uploadFormData.append('file', file);
     
-    const response = await request.post('/file/upload/book-cover', uploadFormData, {
+    const result = await request.post('/file/upload/book-cover', uploadFormData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     });
     
-    if (response.data.code === 200) {
-      uploadedCoverUrl.value = response.data.data.url;
-      formData.coverUrl = response.data.data.url;
-      message.success('封面上传成功');
-    }
+    uploadedCoverUrl.value = result.url;
+    formData.coverUrl = result.url;
+    message.success('封面上传成功');
   } catch (error: any) {
     console.error('封面上传失败:', error);
     message.error('封面上传失败');
@@ -815,27 +806,23 @@ const handleSubmit = async () => {
     let response;
     if (isEdit.value && formData.bookId) {
       // 编辑模式
-      response = await request.put(`/admin/books/${formData.bookId}`, submitData);
+      await request.put(`/admin/books/${formData.bookId}`, submitData);
     } else {
       // 新增模式
       // 获取当前登录用户信息
       const userInfoStr = localStorage.getItem('userInfo');
       const userInfo = userInfoStr ? JSON.parse(userInfoStr) : {};
       
-      response = await request.post('/admin/books', {
+      await request.post('/admin/books', {
         ...submitData,
         authorId: userInfo.userId
       });
     }
     
-    if (response.data.code === 200) {
-      message.success(isEdit.value ? '编辑成功' : '添加成功');
-      showModal.value = false;
-      uploadedCoverUrl.value = '';
-      loadData();
-    } else {
-      message.error(response.data.msg || (isEdit.value ? '编辑失败' : '添加失败'));
-    }
+    message.success(isEdit.value ? '编辑成功' : '添加成功');
+    showModal.value = false;
+    uploadedCoverUrl.value = '';
+    loadData();
   } catch (error: any) {
     message.error(isEdit.value ? '编辑失败' : '添加失败');
   } finally {

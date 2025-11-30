@@ -4,8 +4,10 @@
       <!-- 左侧装饰区域 -->
       <div class="left-section">
         <div class="brand">
-          <div class="brand-icon">📚</div>
-          <h1 class="brand-title">智能图书馆</h1>
+          <div class="brand-icon">
+            <img src="/favicon.ico" alt="Logo" class="logo-image" />
+          </div>
+          <h1 class="brand-title">神阁慧境阁</h1>
           <p class="brand-slogan">成为作者，分享你的知识与智慧</p>
         </div>
         <div class="decoration">
@@ -229,6 +231,13 @@ onMounted(() => {
   padding: 20px;
 }
 
+.logo-image {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
 .register-wrapper {
   display: flex;
   width: 100%;
@@ -361,10 +370,6 @@ onMounted(() => {
   margin: 0;
 }
 
-.register-form :deep(.n-form-item) {
-  margin-bottom: 8px;
-}
-
 .form-row {
   display: flex;
   gap: 16px;
@@ -376,7 +381,6 @@ onMounted(() => {
 
 .register-form :deep(.n-input) {
   border-radius: 10px;
-  border: 2px solid #e0f2fe;
   background: #f8fafc;
   transition: all 0.3s ease;
 }

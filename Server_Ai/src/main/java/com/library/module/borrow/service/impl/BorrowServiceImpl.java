@@ -47,7 +47,7 @@ public class BorrowServiceImpl extends ServiceImpl<BorrowRecordMapper, BorrowRec
     /**
      * 借阅期限（天）
      */
-    private static final int BORROW_DURATION = 30;
+    private static final int BORROW_DURATION = 60;
 
     /**
      * 续借期限（天）
@@ -305,13 +305,19 @@ public class BorrowServiceImpl extends ServiceImpl<BorrowRecordMapper, BorrowRec
                         vo.setCoverUrl("");
                     }
 
-                    // 计算是否逾期和剩余天数
-                    LocalDateTime now = LocalDateTime.now();
-                    boolean isOverdue = now.isAfter(record.getDueTime());
-                    vo.setIsOverdue(isOverdue);
+                    // 计算是否逾期和剩余天数（待审批状态时dueTime为null）
+                    if (record.getDueTime() != null) {
+                        LocalDateTime now = LocalDateTime.now();
+                        boolean isOverdue = now.isAfter(record.getDueTime());
+                        vo.setIsOverdue(isOverdue);
 
-                    int daysRemaining = (int) ChronoUnit.DAYS.between(now, record.getDueTime());
-                    vo.setDaysRemaining(daysRemaining);
+                        int daysRemaining = (int) ChronoUnit.DAYS.between(now, record.getDueTime());
+                        vo.setDaysRemaining(daysRemaining);
+                    } else {
+                        // 待审批状态，没有逾期信息
+                        vo.setIsOverdue(false);
+                        vo.setDaysRemaining(0);
+                    }
 
                     return vo;
                 } catch (Exception e) {

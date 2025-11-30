@@ -108,7 +108,7 @@ embedding:
     # API 基础 URL
     base-url: https://api.ppinfra.com/openai/v1
     # API Key
-    api-key: sk_FjDpRv6r8U0hmfuDNBGHhthr2DP_p4bzvWK85bcSaXg
+    api-key: sk_rjwt4KTPL6Rj1dvXy9eUxHZX6jCb0EqqeSydskiSXGI
     # 模型名称
     model: qwen/qwen3-embedding-8b
     # 向量编码格式

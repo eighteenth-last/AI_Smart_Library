@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c6d3641f-695c-41a2-ae8d-20c1cb5da6c3" name="更改" comment="">
       <change afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-admin/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-user/public/favicon.ico" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Cloud_Snow_Pavilion/Static/index.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Cloud_Snow_Pavilion/Static/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Cloud_Snow_Pavilion/web_front/admin/public/logo.png" afterDir="false" />
@@ -24,6 +22,25 @@
       <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/src/main/java/com/library/module/borrow/controller/AdminBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/src/main/java/com/library/module/borrow/controller/AdminBorrowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/src/main/java/com/library/module/borrow/service/impl/BorrowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/src/main/java/com/library/module/borrow/service/impl/BorrowServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/target/classes/com/library/module/borrow/controller/AdminBorrowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/target/classes/com/library/module/borrow/controller/AdminBorrowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server_Ai/target/classes/com/library/module/borrow/service/impl/BorrowServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server_Ai/target/classes/com/library/module/borrow/service/impl/BorrowServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-admin/src/api/admin/borrows.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web-admin/src/api/admin/borrows.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-admin/src/views/AuthorReview/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-admin/src/views/AuthorReview/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-author/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/web-author/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-author/src/views/Login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-author/src/views/Login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-author/src/views/MyBooks/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-author/src/views/MyBooks/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-author/src/views/QAManagement/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-author/src/views/QAManagement/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-author/src/views/Register/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-author/src/views/Register/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-user/src/pages/BookDetail/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-user/src/pages/BookDetail/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-user/src/pages/Login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-user/src/pages/Login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-user/src/pages/Register/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web-user/src/pages/Register/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Frontend_Development.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../SCRIPT_IMPROVEMENT_PLAN.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Urban_Hearth/convert_csv_to_json.py" beforeDir="false" />
@@ -125,7 +142,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -144,7 +161,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "R:/Code_Repository/AI_Smart_Library/fronted/web-user/public",
+    "last_opened_file_path": "R:/Code_Repository/AI_Smart_Library/fronted/web-author/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -161,6 +178,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-author\public" />
       <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-user\public" />
       <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-admin\public" />
       <recent name="R:\Code_Repository\AI_Smart_Library\fronted\web-author\src\store" />
@@ -197,7 +215,8 @@
       <workItem from="1764116459704" duration="5636000" />
       <workItem from="1764129249030" duration="12862000" />
       <workItem from="1764337568791" duration="5426000" />
-      <workItem from="1764394427639" duration="8710000" />
+      <workItem from="1764394427639" duration="9316000" />
+      <workItem from="1764481099702" duration="4840000" />
     </task>
     <servers />
   </component>

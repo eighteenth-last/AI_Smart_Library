@@ -399,19 +399,15 @@ const submitReply = async () => {
   submitting.value = true
   
   try {
-    const response = await qaAPI.answerQuestion({
+    await qaAPI.answerQuestion({
       qaId: currentQA.value.qaId,
       answer: replyForm.value.answer,
       isPublic: replyForm.value.isPublic ? 1 : 0
     })
     
-    if (response.data.code === 200) {
-      message.success('回复成功')
-      showReplyModal.value = false
-      loadQAList()
-    } else {
-      message.error(response.data.msg || '回复失败')
-    }
+    message.success('回复成功')
+    showReplyModal.value = false
+    loadQAList()
   } catch (error) {
     console.error('Submit reply error:', error)
     message.error('回复失败')

@@ -229,6 +229,7 @@ import { useMessage, type FormInst, type FormRules } from 'naive-ui';
 import { getBookDetail, getRecommendBooks, type BookDetail, type RecommendBook } from '@/api/user/books';
 import { reviewAPI } from '@/api/user/review';
 import { addFavorite, removeFavorite, checkFavorite } from '@/api/user/favorite';
+import { borrowAPI } from '@/api/user/borrow';
 import { useUserStore } from '@/store/user';
 import { CreateOutline, ChatboxOutline, BookOutline, HeartOutline, Heart } from '@vicons/ionicons5';
 import NavBar from '@/components/NavBar.vue';
@@ -387,15 +388,31 @@ const formatDate = (dateString: string) => {
   return date.toLocaleDateString('zh-CN');
 };
 
-const handleBorrow = () => {
+const handleBorrow = async () => {
   if (!book.value) return;
+  
+  // 检查是否登录
+  if (!userStore.isLoggedIn()) {
+    message.warning('请先登录');
+    router.push('/login');
+    return;
+  }
   
   if (book.value.availableStock === 0) {
     message.warning('该图书暂无可借');
     return;
   }
   
-  message.success('借阅申请已提交');
+  try {
+    await borrowAPI.borrowBook(book.value.bookId);
+    message.success('借阅申请已提交，请等待管理员审核');
+    
+    // 刷新图书信息（更新可借数量）
+    await loadBookDetail();
+  } catch (error: any) {
+    console.error('借阅失败', error);
+    message.error(error.message || '借阅申请提交失败');
+  }
 };
 
 // 检查收藏状态
